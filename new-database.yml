@@ -1,0 +1,19 @@
+apiVersion: ydb.tech/v1alpha1
+kind: Database
+metadata:
+    name: database-minikube-sample
+spec:
+    domain: Root
+    image:
+        name: cr.yandex/crptqonuodf51kdj7a7d/ydb:22.2.22
+    nodes: 1
+    resources:
+        containerResources:
+            limits:
+                cpu: 500m
+                memory: 1024Mi
+        storageUnits:
+            - count: 1
+              unitKind: ssd
+    storageClusterRef:
+        name: storage-minikube-sample
